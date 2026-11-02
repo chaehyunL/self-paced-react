@@ -1,4 +1,5 @@
 import "./Main.css";
+import RestaurantCard from "./RestaurantCard";
 
 function Main({ category, onChangeCategory, restaurants, onOpenModal }) {
     return (
@@ -57,26 +58,12 @@ function RestaurantList({ restaurants, onOpenModal }) {
             <section className="restaurant-list-container">
                 <ul className="restaurant-list">
                     {restaurants.map((restaurant) => (
-                        <li className="restaurant"
+                        <RestaurantCard
                             key={restaurant.id}
-                            onClick={()=>onOpenModal(restaurant)}
-                        >
-                            <div className="restaurant__category">
-                                <img
-                                    src={`/templates/category-${categoryImages[restaurant.category]}.png`}
-                                    alt={restaurant.category}
-                                    className="category-icon"
-                                />
-                            </div>
-                            <div className="restaurant__info">
-                                <h3 className="restaurant__name text-subtitle">
-                                    {restaurant.name}
-                                </h3>
-                                <p className="restaurant__description text-body">
-                                    {restaurant.description}
-                                </p>
-                            </div>
-                        </li>
+                            restaurant={restaurant}
+                            onClick={onOpenModal}
+                            categoryImages={categoryImages}
+                        />
                     ))}
                 </ul>
             </section>
