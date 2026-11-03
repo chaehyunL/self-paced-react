@@ -1,6 +1,6 @@
-import "../styles/FilterableRestaurantList.css";
+import "../style/FilterableRestaurantList.css";
 import RestaurantCard from "./RestaurantCard";
-import { CATEGORIES } from "../data/categories";
+import { CATEGORIES } from "../../data/categories";
 
 function FilterableRestaurantList({ category, onChangeCategory, restaurants, onOpenModal }) {
     return (

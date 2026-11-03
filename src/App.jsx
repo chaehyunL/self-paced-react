@@ -1,26 +1,26 @@
 import "./App.css";
-import Header from "./components/Header";
-import FilteralbeRestaurantList from "./components/FilterableRestaurantList";
-import Aside from "./components/Aside";
+import Header from "./components/header/Header";
+import FilterableRestaurantList from "./components/main/FilterableRestaurantList";
+import Aside from "./components/aside/Aside";
 import { useState } from "react";
 import { RESTAURANTS } from "./data/restaurants";
 
 function App() {
   const [category, setCategory] = useState("전체");
-  const [isModalOpen,setIsModalOpen]= useState(false);
-  const [selectedRestaurant,setSelectedRestaurant] =useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const filteredRestaurants = RESTAURANTS.filter(
-    (restaurant) => 
-     category === "전체" || restaurant.category === category
+    (restaurant) =>
+      category === "전체" || restaurant.category === category
   );
 
-  function handleOpenModal(restaurant){
+  function handleOpenModal(restaurant) {
     setSelectedRestaurant(restaurant);
     setIsModalOpen(true);
   }
 
-  function handleCloseModal(){
+  function handleCloseModal() {
     setSelectedRestaurant(null);
     setIsModalOpen(false);
   }
@@ -28,13 +28,13 @@ function App() {
   return (
     <>
       <Header />
-      <FilteralbeRestaurantList
+      <FilterableRestaurantList
         category={category}
         onChangeCategory={setCategory}
         restaurants={filteredRestaurants}
         onOpenModal={handleOpenModal}
       />
-      <Aside 
+      <Aside
         isModalOpen={isModalOpen}
         selectedRestaurant={selectedRestaurant}
         onCloseModal={handleCloseModal}

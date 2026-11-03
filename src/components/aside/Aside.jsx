@@ -1,5 +1,4 @@
-import "../styles/Aside.css";
-import { CATEGORIES } from "../data/categories";
+import "../style/Aside.css";
 import RestaurantDetailModal from "./RestaurantDetailModal";
 
 function Aside({ isModalOpen, selectedRestaurant, onCloseModal }) {
