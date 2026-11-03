@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import FilteralbeRestaurantList from "./components/FilterableRestaurantList";
 import Aside from "./components/Aside";
 import { useState } from "react";
 import { restaurants } from "./data/restaurants";
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main
+      <FilteralbeRestaurantList
         category={category}
         onChangeCategory={setCategory}
         restaurants={filteredRestaurants}

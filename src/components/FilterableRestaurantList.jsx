@@ -1,7 +1,7 @@
 import "./Main.css";
 import RestaurantCard from "./RestaurantCard";
 
-function Main({ category, onChangeCategory, restaurants, onOpenModal }) {
+function FilterableRestaurantList({ category, onChangeCategory, restaurants, onOpenModal }) {
     return (
         <main>
             <CatagoryFilter
@@ -16,7 +16,7 @@ function Main({ category, onChangeCategory, restaurants, onOpenModal }) {
     )
 }
 
-export default Main;
+export default FilteralbeRestaurantList;
 
 function CatagoryFilter({ category, onChangeCategory }) {
     return (
@@ -61,7 +61,7 @@ function RestaurantList({ restaurants, onOpenModal }) {
                         <RestaurantCard
                             key={restaurant.id}
                             restaurant={restaurant}
-                            onClick={onOpenModal}
+                            onOpenModal={onOpenModal}
                             categoryImages={categoryImages}
                         />
                     ))}
