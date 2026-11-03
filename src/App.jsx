@@ -21,6 +21,7 @@ function App() {
   }
 
   function handleCloseModal(){
+    setSelectedRestaurant(null);
     setIsModalOpen(false);
   }
 
