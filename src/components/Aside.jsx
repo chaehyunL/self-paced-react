@@ -9,6 +9,7 @@ function Aside({ isModalOpen, selectedRestaurant, onCloseModal }) {
           onCloseModal={onCloseModal}
         />
       )}
+      <AddRestaurantModal/>
     </aside>
   );
 }
