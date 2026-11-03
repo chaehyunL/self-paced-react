@@ -1,4 +1,4 @@
-import "./Main.css";
+import "./FilterableRestaurantList.css";
 import RestaurantCard from "./RestaurantCard";
 
 function FilterableRestaurantList({ category, onChangeCategory, restaurants, onOpenModal }) {
@@ -16,7 +16,7 @@ function FilterableRestaurantList({ category, onChangeCategory, restaurants, onO
     )
 }
 
-export default FilteralbeRestaurantList;
+export default FilterableRestaurantList;
 
 function CatagoryFilter({ category, onChangeCategory }) {
     return (
