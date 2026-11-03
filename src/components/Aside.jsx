@@ -1,27 +1,27 @@
-import "./Aside.css";
+import "../styles/Aside.css";
+import { CATEGORIES } from "../data/categories";
 
 function Aside({ isModalOpen, selectedRestaurant, onCloseModal }) {
   return (
     <aside>
       {isModalOpen && selectedRestaurant && (
-        <RestaurantDetailModal 
+        <RestaurantDetailModal
           restaurant={selectedRestaurant}
           onCloseModal={onCloseModal}
         />
       )}
-      <AddRestaurantModal/>
     </aside>
   );
 }
 
 export default Aside;
 
-function RestaurantDetailModal({restaurant,onCloseModal}) {
+function RestaurantDetailModal({ restaurant, onCloseModal }) {
   return (
     <>
       <div className="modal modal--open">
         <div className="modal-backdrop"
-            onClick={onCloseModal}
+          onClick={onCloseModal}
         ></div>
         <div className="modal-container">
           <h2 className="modal-title text-title"
@@ -31,7 +31,7 @@ function RestaurantDetailModal({restaurant,onCloseModal}) {
           </div>
           <div className="button-container">
             <button className="button button--primary text-caption"
-                    onClick={onCloseModal}
+              onClick={onCloseModal}
             >닫기</button>
           </div>
         </div>
@@ -52,12 +52,11 @@ function AddRestaurantModal() {
               <label htmlFor="category text-caption">카테고리</label>
               <select name="category" id="category" required>
                 <option value="">선택해 주세요</option>
-                <option value="한식">한식</option>
-                <option value="중식">중식</option>
-                <option value="일식">일식</option>
-                <option value="양식">양식</option>
-                <option value="아시안">아시안</option>
-                <option value="기타">기타</option>
+                {CATEGORIES.map((category) => (
+                  <option key={category}>
+                    {category}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="form-item form-item--required">

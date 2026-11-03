@@ -3,14 +3,14 @@ import Header from "./components/Header";
 import FilteralbeRestaurantList from "./components/FilterableRestaurantList";
 import Aside from "./components/Aside";
 import { useState } from "react";
-import { restaurants } from "./data/restaurants";
+import { RESTAURANTS } from "./data/restaurants";
 
 function App() {
   const [category, setCategory] = useState("전체");
   const [isModalOpen,setIsModalOpen]= useState(false);
   const [selectedRestaurant,setSelectedRestaurant] =useState(null);
 
-  const filteredRestaurants = restaurants.filter(
+  const filteredRestaurants = RESTAURANTS.filter(
     (restaurant) => 
      category === "전체" || restaurant.category === category
   );
