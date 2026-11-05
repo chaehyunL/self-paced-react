@@ -9,8 +9,10 @@ function App() {
   const [category, setCategory] = useState("전체");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-
-  const filteredRestaurants = RESTAURANTS.filter(
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [restaurants, setRestaurants] = useState(RESTAURANTS);
+  
+  const filteredRestaurants = restaurants.filter(
     (restaurant) =>
       category === "전체" || restaurant.category === category
   );
@@ -25,9 +27,23 @@ function App() {
     setIsModalOpen(false);
   }
 
+  function handleOpenAddModal() {
+    setIsAddModalOpen(true);
+  }
+
+  function handleCloseAddModal() {
+    setIsAddModalOpen(false);
+  }
+
+  function handleAddRestaurant(newRestaurant) {
+    setRestaurants((prev) => [newRestaurant, ...prev]);
+  }
+
   return (
     <>
-      <Header />
+      <Header
+        onOpenAddModal={handleOpenAddModal}
+      />
       <FilterableRestaurantList
         category={category}
         onChangeCategory={setCategory}
@@ -38,6 +54,10 @@ function App() {
         isModalOpen={isModalOpen}
         selectedRestaurant={selectedRestaurant}
         onCloseModal={handleCloseModal}
+
+        isAddModalOpen={isAddModalOpen}
+        onCloseAddModal={handleCloseAddModal}
+        onAddRestaurant={handleAddRestaurant}
       />
     </>
   );
