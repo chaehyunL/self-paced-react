@@ -1,5 +1,6 @@
 import { CATEGORIES } from "../../data/categories";
 import { useRef } from "react";
+import Modal from "../modal/Modal";
 
 function AddRestaurantModal({ onCloseAddModal, onAddRestaurant }) {
   const nameRef = useRef(null);
@@ -20,7 +21,8 @@ function AddRestaurantModal({ onCloseAddModal, onAddRestaurant }) {
   }
 
   return (
-    <modal title="새로운 음식점" onClose={onCloseAddModal}>
+    <Modal onClose={onCloseAddModal}>
+      <h2 className="modal-title text-title">새로운 음식점</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-item form-item--required">
           <label htmlFor="category">카테고리</label>
@@ -46,7 +48,7 @@ function AddRestaurantModal({ onCloseAddModal, onAddRestaurant }) {
           <button type="submit" className="button button--primary text-caption">추가하기</button>
         </div>
       </form>
-    </modal>
+    </Modal>
   );
 }
 

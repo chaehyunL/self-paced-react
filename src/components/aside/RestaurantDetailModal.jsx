@@ -1,7 +1,9 @@
+import Modal from "../modal/Modal";
+
 function RestaurantDetailModal({ restaurant, onCloseModal }) {
   return (
-    <modal title={restaurant.name} onClose={onCloseModal}>
-
+    <Modal onClose={onCloseModal}>
+      <h2 className="modal-title text-title">{restaurant.name}</h2>
       <div className="restaurant-info">
         <p className="restaurant-info__description text-body">{restaurant.description}</p>
       </div>
@@ -10,7 +12,7 @@ function RestaurantDetailModal({ restaurant, onCloseModal }) {
           onClick={onCloseModal}
         >닫기</button>
       </div>
-    </modal>
+    </Modal>
 
   );
 }
