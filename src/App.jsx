@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [category, setCategory] = useState("전체");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isRestaurantInfoModalOpen, setIsRestaurantInfoModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [restaurants, setRestaurants] = useState(RESTAURANTS);
@@ -51,12 +51,12 @@ function App() {
 
   function handleOpenModal(restaurant) {
     setSelectedRestaurant(restaurant);
-    setIsModalOpen(true);
+    setIsRestaurantInfoModalOpen(true);
   }
 
   function handleCloseModal() {
     setSelectedRestaurant(null);
-    setIsModalOpen(false);
+    setIsRestaurantInfoModalOpen(false);
   }
 
   function handleOpenAddModal() {
@@ -79,7 +79,7 @@ function App() {
         onOpenModal={handleOpenModal}
       />
       <Aside
-        isModalOpen={isModalOpen}
+        isModalOpen={isRestaurantInfoModalOpen}
         selectedRestaurant={selectedRestaurant}
         onCloseModal={handleCloseModal}
 
