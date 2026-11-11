@@ -36,7 +36,7 @@ const AddButton = styled.button`
   }
 `;
 
-function Header() {
+function Header({onOpenAddModal}) {
   return (
     <HeaderContainer>
       <HeaderTitle>점심 뭐 먹지</HeaderTitle>
@@ -46,5 +46,3 @@ function Header() {
     </HeaderContainer>
   );
 }
-
-export default Header;
